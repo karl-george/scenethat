@@ -44,3 +44,23 @@ nav {
 .nav__search::placeholder {
   color: #6c6cab;
 }
+
+@media screen and (max-width: 1024px) {
+  .nav__filter {
+    margin-left: 3rem;
+  }
+
+  .nav__search {
+    margin-left: 3rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .nav__filter {
+    margin-left: 2rem;
+  }
+
+  .nav__search {
+    margin-left: 2rem;
+  }
+}
