@@ -3,7 +3,44 @@ nav {
   padding: 2rem;
 }
 
+.nav__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .nav__logo {
-  width: 100px;
+  width: 110px;
   cursor: pointer;
+}
+
+.nav__filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-left: 5rem;
+  padding: 1rem;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav__search {
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  width: 50%;
+  margin-left: 3rem;
+}
+
+.nav__search::placeholder {
+  color: #6c6cab;
 }
