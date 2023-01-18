@@ -1,0 +1,9 @@
+nav {
+  background: var(--color-bg-light);
+  padding: 2rem;
+}
+
+.nav__logo {
+  width: 100px;
+  cursor: pointer;
+}
