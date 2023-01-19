@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import Movie from '../components/Movie/Movie';
 
 const Wall = () => {
-  const [movies, setMovies] = useState();
+  const [movieData, setMovieData] = useState();
 
   useEffect(() => {
     fetch(
@@ -10,14 +11,18 @@ const Wall = () => {
       }&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
     )
       .then((res) => res.json())
-      .then((data) => setMovies(data));
+      .then((data) => setMovieData(data));
   }, []);
 
-  console.log(movies);
+  const movies = movieData?.results?.map((movie, idx) => (
+    <Movie key={idx} movie={movie} />
+  ));
 
   return (
     <section>
-      <div className='container'>Wall</div>
+      <div className='container'>
+        <div className='movies__wrapper'>{movies}</div>
+      </div>
     </section>
   );
 };
