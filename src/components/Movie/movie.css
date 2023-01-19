@@ -1,0 +1,26 @@
+.movie__img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.movie__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  background: var(--color-bg-light);
+  margin-top: -0.35rem;
+  max-height: 60px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.movie__title {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.movie__rating {
+  background: var(--color-bg);
+  padding: 1rem;
+}
