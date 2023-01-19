@@ -8,12 +8,6 @@ const Wall = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const moviesPerPage = 20;
-  const offset = currentPage * moviesPerPage;
-  const currentMovies = movieData?.results?.slice(
-    offset,
-    offset + moviesPerPage
-  );
-
   const pageCount = 500;
 
   const paginate = ({ selected }) => {
@@ -38,8 +32,6 @@ const Wall = () => {
     <Movie key={idx} movie={movie} getMovieId={getMovieId} />
   ));
 
-  console.log(movieData);
-
   return (
     <section>
       <div className='container'>
@@ -58,7 +50,6 @@ const Wall = () => {
           pageRangeDisplayed={3}
           renderOnZeroPageCount={null}
         />
-        {currentMovies}
       </div>
     </section>
   );
