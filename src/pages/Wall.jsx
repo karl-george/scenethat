@@ -3,6 +3,7 @@ import Movie from '../components/Movie/Movie';
 
 const Wall = () => {
   const [movieData, setMovieData] = useState();
+  const [movieId, setMovieId] = useState();
 
   useEffect(() => {
     fetch(
@@ -14,8 +15,12 @@ const Wall = () => {
       .then((data) => setMovieData(data));
   }, []);
 
+  const getMovieId = (id) => {
+    setMovieId(id);
+  };
+
   const movies = movieData?.results?.map((movie, idx) => (
-    <Movie key={idx} movie={movie} />
+    <Movie key={idx} movie={movie} getMovieId={getMovieId} />
   ));
 
   return (
