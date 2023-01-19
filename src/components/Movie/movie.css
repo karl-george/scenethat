@@ -6,6 +6,9 @@
 .movie__img {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  /* Have to set min and max height because API has different image sizes */
+  min-height: 444px;
+  max-height: 450px;
 }
 
 .movie__details {
