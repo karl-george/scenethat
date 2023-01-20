@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import Movie from '../components/Movie/Movie';
 import ReactPaginate from 'react-paginate';
+import './wall.css';
 
 const Wall = () => {
   const [movieData, setMovieData] = useState();
   const [movieId, setMovieId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-
-  const moviesPerPage = 20;
   const pageCount = 500;
 
   const paginate = ({ selected }) => {
@@ -36,20 +35,23 @@ const Wall = () => {
     <section>
       <div className='container'>
         <div className='movies__wrapper'>{movies}</div>
-        <ReactPaginate
-          onPageChange={paginate}
-          pageCount={pageCount}
-          previousLabel={'Prev'}
-          nextLabel={'Next'}
-          containerClassName={'pagination'}
-          pageLinkClassName={'page-number'}
-          previousLinkClassName={'page-number'}
-          nextLinkClassName={'page-number'}
-          activeLinkClassName={'active'}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
-          renderOnZeroPageCount={null}
-        />
+        <div className='paginate__wrapper'>
+          <ReactPaginate
+            onPageChange={paginate}
+            pageCount={pageCount}
+            previousLabel={'Prev'}
+            nextLabel={'Next'}
+            containerClassName={'pagination'}
+            pageLinkClassName={'page-number'}
+            previousLinkClassName={'prev'}
+            nextLinkClassName={'next'}
+            activeLinkClassName={'active'}
+            breakClassName={'page-number'}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            renderOnZeroPageCount={null}
+          />
+        </div>
       </div>
     </section>
   );
