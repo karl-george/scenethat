@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import Movie from '../Movie/Movie';
+import './movies.css';
 
 const Movies = ({ setMovieDetails }) => {
   const [movieData, setMovieData] = useState();

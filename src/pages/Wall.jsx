@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MovieDetails from '../components/MovieDetails/MovieDetails';
 import Movies from '../components/Movies/Movies';
-import Movie from '../components/Movie/Movie';
 import './wall.css';
 
 const Wall = () => {
