@@ -1,0 +1,39 @@
+.movies__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Pagination */
+.paginate__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  list-style-type: none;
+  background: var(--color-bg-light);
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.prev,
+.next {
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.page-number {
+  cursor: pointer;
+}
+
+.active {
+  color: var(--color-text-secondary);
+}

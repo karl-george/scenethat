@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './moviedetails.css';
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
   const { movieId } = useParams();
+
+  const imageURL = `https://image.tmdb.org/t/p/w500/${movieDetails?.backdrop_path}`;
 
   // Call API for specific movie details
   useEffect(() => {
@@ -19,7 +21,15 @@ const MovieDetails = ({ movie }) => {
 
   console.log(movieDetails);
 
-  return <div>MOVIEDETAILS</div>;
+  return (
+    <div>
+      {movieDetails && (
+        <div>
+          <img src={imageURL} />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default MovieDetails;
