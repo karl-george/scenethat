@@ -41,10 +41,12 @@ const MovieDetails = () => {
           <div className='container moviedetails__content'>
             <img className='moviedetails__poster' src={posterURL} />
             <div className='moviedetails__content_column'>
-              <h2 className='moviedetails__title'>
-                {movieDetails.original_title}
-              </h2>
-              <p className='moviedetails__tagline'>"{movieDetails.tagline}"</p>
+              <h2 className='moviedetails__title'>{movieDetails.title}</h2>
+              {movieDetails.tagline && (
+                <p className='moviedetails__tagline'>
+                  "{movieDetails.tagline}"
+                </p>
+              )}
               <p className='moviedetails__overview'>{movieDetails.overview}</p>
               <p className='moviedetails__runtime'>
                 <span className='bold'>Runtime:</span> {movieDetails.runtime}{' '}
