@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './movie.css';
 
-const Movie = ({ movie, getMovieId }) => {
+const Movie = ({ movie }) => {
   const imageURL = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const nameSliced = movie.title.slice(0, 35);
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Movie = ({ movie, getMovieId }) => {
       <img className='movie__img' src={imageURL} />
       <div className='movie__details'>
         <p className='movie__title'>{nameSliced}</p>
-        <p className='movie__rating'>{movie.vote_average}</p>
+        <p className='movie__rating'>{movie.vote_average.toFixed(1)}</p>
       </div>
     </div>
   );
