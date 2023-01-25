@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Movie from '../Movie/Movie';
 import './moviedetails.css';
+import '../Movie/movie.css';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
+  const [recommended, setRecommended] = useState();
   const { movieId } = useParams();
 
   // API only provides the end of the image path
@@ -31,7 +34,21 @@ const MovieDetails = () => {
       .then((data) => setMovieDetails(data));
   }, [movieId]);
 
-  console.log(movieDetails);
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${
+        import.meta.env.VITE_API_KEY
+      }&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((data) => setRecommended(data));
+  }, [movieId]);
+
+  console.log(recommended);
+
+  const recommendedMovies = recommended?.results?.map((movie) => (
+    <Movie movie={movie} />
+  ));
 
   return (
     <div>
@@ -76,7 +93,6 @@ const MovieDetails = () => {
               </div>
               <div className='moviedetails__content__row'>
                 <p className='moviedetails__countries'>
-                  {' '}
                   <span className='bold'>Country:</span>
                   {countries.join(', ')}
                 </p>
@@ -85,6 +101,12 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
+      <div className='container '>
+        <h3 className='recommended__title'>
+          Movies Like {movieDetails?.title}
+        </h3>
+        <div className='moviedetails__recommended'>{recommendedMovies}</div>
+      </div>
     </div>
   );
 };

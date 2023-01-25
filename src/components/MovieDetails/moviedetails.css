@@ -1,6 +1,7 @@
 .moviedetails {
   position: relative;
   overflow: hidden;
+  margin-bottom: 10rem;
 }
 
 .moviedetails__bg {
@@ -70,4 +71,17 @@
 .bold {
   font-weight: 700;
   margin-right: 0.5rem;
+}
+
+.recommended__title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.moviedetails__recommended {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
