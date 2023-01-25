@@ -18,6 +18,8 @@ const MovieDetails = () => {
     (country) => country.name
   );
 
+  const genres = movieDetails?.genres?.map((genre) => genre.name);
+
   // Call API for specific movie details
   useEffect(() => {
     fetch(
@@ -28,6 +30,8 @@ const MovieDetails = () => {
       .then((res) => res.json())
       .then((data) => setMovieDetails(data));
   }, [movieId]);
+
+  console.log(movieDetails);
 
   return (
     <div>
@@ -40,14 +44,41 @@ const MovieDetails = () => {
               <h2 className='moviedetails__title'>
                 {movieDetails.original_title}
               </h2>
+              <p className='moviedetails__tagline'>"{movieDetails.tagline}"</p>
               <p className='moviedetails__overview'>{movieDetails.overview}</p>
-              <p className='moviedetails__rating'>{movieDetails.popularity}</p>
-              <p className='moviedetails__release'>
-                {movieDetails.release_date}
+              <p className='moviedetails__runtime'>
+                <span className='bold'>Runtime:</span> {movieDetails.runtime}{' '}
+                min
               </p>
-              <p className='moviedetails__runtime'>{movieDetails.runtime}</p>
-              <p className='moviedetails__runtime'>{production.join(', ')}</p>
-              <p className='moviedetails__runtime'>{countries.join(', ')}</p>
+              <div className='moviedetails__content__row'>
+                <p className='moviedetails__release'>
+                  <span className='bold'>Released:</span>
+                  {movieDetails.release_date}
+                </p>
+                <p className='moviedetails__rating'>
+                  <span className='bold'>Rating:</span>
+                  {movieDetails.vote_average.toFixed(1)}
+                </p>
+              </div>
+              <div className='moviedetails__content__row'>
+                <p className='moviedetails__genre'>
+                  <span className='bold'>Genre:</span>
+                  {genres.join(', ')}
+                </p>
+              </div>
+              <div className='moviedetails__content__row'>
+                <p className='moviedetails__production'>
+                  <span className='bold'>Production:</span>
+                  {production.join(', ')}
+                </p>
+              </div>
+              <div className='moviedetails__content__row'>
+                <p className='moviedetails__countries'>
+                  {' '}
+                  <span className='bold'>Country:</span>
+                  {countries.join(', ')}
+                </p>
+              </div>
             </div>
           </div>
         </div>
