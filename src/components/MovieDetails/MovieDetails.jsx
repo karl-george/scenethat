@@ -8,7 +8,7 @@ const MovieDetails = () => {
 
   // API only provides the end of the image path
   const imageURL = `https://image.tmdb.org/t/p/original/${movieDetails?.backdrop_path}`;
-  const posterURL = `https://image.tmdb.org/t/p/w500/${movieDetails?.poster_path}`;
+  const posterURL = `https://image.tmdb.org/t/p/w300/${movieDetails?.poster_path}`;
 
   const production = movieDetails?.production_companies?.map(
     (company) => company.name
