@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getMovie, getRecommended } from '../../utils/fetch';
 import Movie from '../Movie/Movie';
 import './moviedetails.css';
 
@@ -24,29 +25,19 @@ const MovieDetails = () => {
 
   // Call API for specific movie details
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${
-        import.meta.env.VITE_API_KEY
-      }&language=en-US`
-    )
+    fetch(getMovie(movieId))
       .then((res) => res.json())
       .then((data) => setMovieDetails(data));
   }, [movieId]);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${
-        import.meta.env.VITE_API_KEY
-      }&language=en-US&page=1`
-    )
+    fetch(getRecommended(movieId))
       .then((res) => res.json())
       .then((data) => setRecommended(data));
   }, [movieId]);
 
-  console.log(recommended);
-
-  const recommendedMovies = recommended?.results?.map((movie) => (
-    <Movie movie={movie} />
+  const recommendedMovies = recommended?.results?.map((movie, idx) => (
+    <Movie key={idx} movie={movie} />
   ));
 
   return (
